@@ -11,11 +11,11 @@ function getComputerChoice(){
     }
 }
 
-function getHumanChoice(){
-    //this function gets the user choice
-    let choice = prompt("enter a choice:");
-    return choice.toLowerCase();
-}
+// function getHumanChoice(){
+//     //this function gets the user choice
+//     let choice = button.value;
+//     return choice.toLowerCase();
+// }
 
 function playRound(computerChoice, humanChoice, rules){
     //this function decides who won and returns the outcome
@@ -31,42 +31,44 @@ function playRound(computerChoice, humanChoice, rules){
     }
 }
 
-function playGame(){
+function playGame(humanChoice){
     //this function handles game flow
-    let humanScore = 0, computerScore = 0;
-
+    
     //rules mapped in object for better usability
     const rules = {
         rock : "scissors",
         paper : "rock",
         scissors : "paper"
     };
-
-    for(let i=0; i<5; i++){
-        const humanChoice = getHumanChoice()
-        const computerChoice = getComputerChoice()
-        console.log(humanChoice, computerChoice);
-
-        let result = playRound(computerChoice, humanChoice, rules);
-
-        if(result === "human"){
-            humanScore++;
-        }else if(result === "computer"){
-            computerScore++;
-        }else{
-            continue;
-        }
+    
+    let resultDiv = document.querySelector(".result");
+    
+    // const humanChoice = getHumanChoice()
+    const computerChoice = getComputerChoice();
+    
+    let result = playRound(computerChoice, humanChoice, rules);
+    
+    if(result === "human"){
+        humanScore++;
+    }else if(result === "computer"){
+        computerScore++;
     }
-
+    
     console.log(`human score ${humanScore} , computer score ${computerScore}`);
+    document.querySelector(".score").textContent = `human score ${humanScore} , computer score ${computerScore}`;
     
     if(humanScore === computerScore){
-        console.log("draw");
+        // console.log("draw");
+        resultDiv.textContent = "draw";
     }else if( humanScore > computerScore){
-        console.log("human is the winner");
+        // console.log("human is the winner");
+        resultDiv.textContent = "human is the winner";
     }else{
-        console.log("computer is the winner");
+        // console.log("computer is the winner");
+        resultDiv.textContent = "computer is the winner";
     }
 }
 
-playGame();
+let humanScore = 0, computerScore = 0;
+
+playGame(humanChoice);

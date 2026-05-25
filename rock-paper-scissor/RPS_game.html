@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="RPS_game.js" defer></script>
 </head>
+
 <body>
-    <script src="RPS_game.js"></script>
+    <button value="rock" onclick="playGame(this.value)">
+        rock
+    </button>
+    <button value="paper" onclick="playGame(this.value)">
+        paper
+    </button>
+    <button value="scissor" onclick="playGame(this.value)">
+        scissor
+    </button>
+
+    <div class="score"></div>
+    <div class="result"></div>
 </body>
+
 </html>
