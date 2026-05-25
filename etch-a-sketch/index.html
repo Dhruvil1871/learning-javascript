@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script src="etch_a_sketch.js" defer></script>
+    
+    <style>
+        .container{
+            display: grid;
+            width : 960px;
+            height: 960px;
+            border: 1px solid black;
+        }
+        .cell{
+            box-sizing: border-box;
+        }
+        button{
+            height: 30px;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="makeGrid()">click</button>
+    <div class="container"></div>
+</body>
+</html>
